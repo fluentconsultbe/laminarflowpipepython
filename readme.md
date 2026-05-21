@@ -2,7 +2,8 @@
 
 The aim of this project is to compute the laminar velocity profile in a circular pipe at low Reynold's number using the __finite element method__.
 
-The simulation is developed using python code together with the excellent scikit-fem library. 
+The simulation is developed in python using the "scikit-fem" library:
+https://scikit-fem.readthedocs.io/en/latest/index.html
 
 #### Assumptions
 
@@ -76,14 +77,6 @@ The maximum is, from python, $\omega_{max}=0.247 m/s$.
 
 The hagen-Poiseuille equations, as applied to these circumstances, gives:
 
-$$u(r)=1-r^2=$$
-𝑢
-(
-𝑟
-)
-=
-1
-−
 𝑟
 2
 .
