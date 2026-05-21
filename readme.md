@@ -25,19 +25,18 @@ $$w=0\quad\text{on }\partial\Omega$$
 ## Derivation weak form
 
 The strong form of the axial momentum equation on the cross-section $\Omega$ is:
-		$$-\mu\nabla^2w=\frac{dp}{dz}
-,$$
+
+$$-\mu\nabla^2w=\frac{dp}{dz},$$
 
 where $\mu$ is the __dynamic viscosity__ and $\frac{dp}{dz}$ is the __constant axial pressure gradient__ driving the flow.
 
 
-Let $$f=-\frac{1}{\mu}\frac{dp}{dz}=const,
-
-$$
+Let $$f=-\frac{1}{\mu}\frac{dp}{dz}=const,$$
 be the __normalized pressure gradient. 
 
 
 The weak form of equation can be derived to be: 
+
 $$\int_\Omega \nabla w \cdot \nabla v  d\Omega = \int_\Omega f v d\Omega \quad \forall v \in V_0$$
 
 with $V_0 = H_0^1(\Omega)$ (zero on boundary → no-slip).
