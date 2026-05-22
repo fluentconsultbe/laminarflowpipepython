@@ -3,9 +3,12 @@
 The aim of this project is to compute the laminar velocity profile in a circular pipe at low Reynold's number using the __finite element method__.
 
 The simulation is developed in python using the "scikit-fem" library:
+
 https://scikit-fem.readthedocs.io/en/latest/index.html
 
-#### Assumptions
+The code can be found in the "notebook" subfolder of this repository in the form of a jupyter notebook "flow.ipynb". It is assumed that the user has the standard anaconde package is installed.
+
+## Assumptions
 
 We assume that the flow is:
 
@@ -14,10 +17,12 @@ We assume that the flow is:
 3) Fully developed,
 4) in the low Reynold's numbers regime.
 
-Under such assumptions:
+The pipe is oriented along the $z$-axis and $w(x,y)$ denotes the __axial velocity__, that is the velocity in the z-direction, at a point $(x,y)$ on a crosssection of the pipe.
 
-1) Only the axial velocity, $w(x,y)$ is nonzero,
-2) The pressure gradient, $\frac{dp}{dz}$, is constant.
+Under these assumptions:
+
+1) Only the axial velocity, $w(x,y)$ is nonzero, meaning that the no fluid motion occurs in the radial direction ( sideways ).
+2) The pressure gradient, $\frac{dp}{dz}$, is constant ( constant velocity ).
 
 Furthermore, we are assuming a __no-slip__ condition at the wall 
 
