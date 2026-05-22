@@ -24,9 +24,11 @@ Under these assumptions:
 1) Only the axial velocity, $w(x,y)$ is nonzero, meaning that the no fluid motion occurs in the radial direction ( sideways ).
 2) The pressure gradient, $\frac{dp}{dz}$ is constant.
 
-Furthermore, we are assuming a __no-slip__ condition at the wall 
+Furthermore, we assume a __no-slip__ condition at the wall 
 
-$$w=0\quad\text{on }\partial\Omega$$
+$$w=0\quad\text{on }\partial\Omega$$,
+
+where $\Omega$ is the interior of the crosssection and $\partial\Omega$ denotes its boundary.
 
 ## Derivation weak form
 
