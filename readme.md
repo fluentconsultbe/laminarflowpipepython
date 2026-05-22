@@ -6,7 +6,7 @@ The FEM simulation is developed in python using the "scikit-fem" library:
 
 https://scikit-fem.readthedocs.io/en/latest/index.html
 
-The code can be found in the "notebook" subfolder of this repository in the form of a jupyter notebook "flow.ipynb". It is assumed that the user has the standard anaconde package is installed.
+The code is provided in the _notebook_ subfolder of this repository, in the jupyter notebook _flow.ipynb_. It is assumed that the user has a standard Anaconda installation.
 
 ## Assumptions
 
