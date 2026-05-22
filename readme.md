@@ -22,7 +22,7 @@ The pipe is oriented along the $z$-axis and $w(x,y)$ denotes the __axial velocit
 Under these assumptions:
 
 1) Only the axial velocity, $w(x,y)$ is nonzero, meaning that the no fluid motion occurs in the radial direction ( sideways ).
-2) The pressure gradient, $\frac{dp}{dz}$.
+2) The pressure gradient, $\frac{dp}{dz}$ is constant.
 
 Furthermore, we are assuming a __no-slip__ condition at the wall 
 
