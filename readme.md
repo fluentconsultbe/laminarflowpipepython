@@ -49,7 +49,7 @@ The resulting solution for $w$ will be compared to the analytical __Hagen–Pois
 ### 2. Discretization idea
 
 A 2D mesh of the cross-section consisting of triangles will be used.
-
+figures/image.png
 ![[figures/Pasted image 20260520221844.png|379]]
 
 We will choose piecewise linear $P_1$ elements.
