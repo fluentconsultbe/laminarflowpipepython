@@ -30,7 +30,7 @@ $$w=0\quad\text{on }\partial\Omega$$,
 
 where $\Omega$ is the interior of the crosssection and $\partial\Omega$ denotes its boundary.
 
-## Derivation of the weak form
+## 1. Derivation of the weak form
 
 The strong form of the axial momentum equation on the cross-section $\Omega$ is:
 
@@ -47,7 +47,7 @@ $$f=-\frac{1}{\mu}\frac{dp}{dz}=const$$
 
 The weak form of equation (1) is obtained as: 
 
-$$\int_\Omega \nabla w \cdot \nabla v \hspace{2pt} d\Omega = \int_\Omega f v \hspace{3pt} d\Omega \quad \forall v \in V_0$$
+$$\int_\Omega \nabla w \cdot \nabla v \hspace{2pt} d\Omega = \int_\Omega f v \hspace{3pt} d\Omega \quad \forall v \in V_0\qquad (2)$$
 
 with $V_0 = H_0^1(\Omega)$, the __Sobolov space__ of test functions that vanish on $\partial \Omega$ (corresponding to the no‑slip condition).
 
@@ -57,18 +57,23 @@ The resulting numerical solution for $w$ will be compared to the analytical __Ha
 
 ### 2. Discretization idea
 
-A 2D mesh of the cross-section consisting of triangles will be used.
+A 2D triangular mesh is generated on the pipe cross‑section Ω. 
 
 <img width="400" alt="Pasted image 20260507111542" src="figures/image.png" />
 
-We will choose piecewise linear $P_1$ elements.
+We use **piecewise linear** P1 **finite elements**, so the approximate solution is written as $$w_h(x,y) = \sum_{j=1}^{N} w_j \, \phi_j(x,y)$$, where $\phi_j$ are the __nodal basis functions__ associated with the mesh vertices.
 
-We will solve the following linear system
+The weak form above, (2), leads to the linear system: 
+
 $$K \mathbf{w} = \mathbf{f}$$ , where
-    - $$K_{ij} = \int_\Omega \nabla \phi_i \cdot \nabla \phi_j , d\Omega)
-    - (f_i = \int_\Omega f \phi_i , d\Omega$$ 
 
-is the __stiffness__ matrix and f is the load vector.
+$$K_{ij} = \int_\Omega \nabla \phi_i \cdot \nabla \phi_j \hspace{3pt}d\Omega
+   $$
+, is called the __stiffness matrix__ and has the properties of being symmetric and positive definite and:
+
+ $$f_i = \int_\Omega f \phi_i  \hspace{3pt} d\Omega$$
+
+is called the the __load vector__.
 
 # Results
 
