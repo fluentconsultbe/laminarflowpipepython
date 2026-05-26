@@ -8,7 +8,7 @@ https://scikit-fem.readthedocs.io/en/latest/index.html
 
 The code is provided in the _notebook_ subfolder of this repository, in the jupyter notebook _flow.ipynb_. It is assumed that the user has a standard Anaconda installation.
 
-## Assumptions
+# Assumptions
 
 We assume that the flow is:
 
@@ -30,7 +30,7 @@ $$w=0\quad\text{on }\partial\Omega$$,
 
 where $\Omega$ is the interior of the crosssection and $\partial\Omega$ denotes its boundary.
 
-## 1. Derivation of the weak form
+# 1. Derivation of the weak form
 
 The strong form of the axial momentum equation on the cross-section $\Omega$ is:
 
@@ -55,7 +55,7 @@ We seek the axial velocity $w \in V_0$, that satisfies the weak formulation abov
 
 The resulting numerical solution for $w$ will be compared to the analytical __Hagen–Poiseuille__ velocity profile.
 
-### 2. Discretization idea
+# 2. Discretization idea
 
 A 2D triangular mesh is generated on the pipe cross‑section Ω. 
 
@@ -75,22 +75,34 @@ $$K_{ij} = \int_\Omega \nabla \phi_i \cdot \nabla \phi_j \hspace{3pt}d\Omega
 
 is called the the __load vector__.
 
-# Results
+# 3. Results
 
-The following plot made in the accompanying code verifies that the velocity is at its maximum in the center of the pipe and deteriorates towards the wall, becoming zero at the wall in consistence with the Dirichlet no-slip boundary condition.
+The following plot generated in the accompanying Python notebook confirms that the velocity is at its maximum in the center of the pipe and decreases monotonically toward the wall, where it correctly approaches zero in consistence with the Dirichlet no-slip boundary condition. Furthermore, the shape closely resembles the analytical parabolic Hagen–Poiseuille profile,
 
 ![[Pasted image 20260520222506.png]]
 
-Plotting the radial velocity, $w$, gives the following plot:
-
 ![[Pasted image 20260521130354.png]]
+# 4. Validation 
 
-¨From this plot it can seen that velocity it is a maximum in the center of the pipe and goes to zero when moving towards to wall in a manner that resembles a parabolic curve.
+For fully developed laminar flow in a circular pipe, the velocity profile is given by the Hagen–Poiseuille solution
 
-The maximum is, from python, $\omega_{max}=0.247 m/s$. 
+$$w(r) = -\frac{1}{4\mu}\frac{dp}{dz}\left(R^2 - r^2\right),$$
 
-The hagen-Poiseuille equations, as applied to these circumstances, gives:
+where $\mu$ is the __dynamic viscosity__, $dp/dz$ is the __pressure gradient__, and $R$ is the pipe radius.  
 
-𝑟
-2
-.
+The maximum velocity occurs at the pipe center ( $r = 0$ ):
+
+$$w_{\max} = -\frac{1}{4\mu}\frac{dp}{dz}R^2.$$
+
+Using the parameters  
+
+$$\mu = 1.0 \hspace{3pt}Pa\cdot s, \qquad \frac{dp}{dz} = -1.0\hspace{3pt}Pa/m, \qquad R=1\hspace{3pt}m$$
+we get that
+
+$$w_{\max} = -\frac{1}{4\mu}\frac{dp}{dz}R^2 = -\frac{1}{4(1.0 \hspace{3pt}\text{Pa ⋅ s})}\cdot(-1.0 \hspace{3pt}\text{Pa / m})\cdot(1 \hspace{2pt}\text{m})^2 = 0.25 \hspace{3pt}\text{m/s}$$
+
+The relative error is therefore
+
+$$\varepsilon = \frac{|w_{\max} - w_{\text{FEM}}|}{w_{\max}} = \frac{|0.25 - 0.247|}{0.25} = 0.012 = 1.2\%.$$
+
+A deviation of **1.2%** demonstrates excellent agreement between the numerical and analytical solutions and provides a **sufficiently accurate validation** of the FEM implementation.
