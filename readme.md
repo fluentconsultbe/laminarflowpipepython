@@ -2,9 +2,13 @@
 
 The aim of this project is to compute the laminar velocity profile in a circular pipe at low Reynold's number using the __finite element method__.
 
-The simulation is developed using python code together with the excellent scikit-fem library. 
+The FEM simulation is developed in python using the "scikit-fem" library:
 
-#### Assumptions
+https://scikit-fem.readthedocs.io/en/latest/index.html
+
+The code is provided in the _notebook_ subfolder of this repository, in the jupyter notebook _flow.ipynb_. It is assumed that the user has a standard Anaconda installation.
+
+## Assumptions
 
 We assume that the flow is:
 
@@ -13,43 +17,49 @@ We assume that the flow is:
 3) Fully developed,
 4) in the low Reynold's numbers regime.
 
-Under such assumptions:
+The pipe is oriented along the $z$-axis and $w(x,y)$ denotes the __axial velocity__, that is the velocity in the z-direction, at a point $(x,y)$ on a crosssection of the pipe.
 
-1) Only the axial velocity, $w(x,y)$ is nonzero,
-2) The pressure gradient, $\frac{dp}{dz}$, is constant.
+Under these assumptions:
 
-Furthermore, we are assuming a __no-slip__ condition at the wall 
+1) Only the axial velocity, $w(x,y)$ is nonzero, meaning that the no fluid motion occurs in the radial direction ( sideways ).
+2) The pressure gradient, $\frac{dp}{dz}$ is constant.
 
-$$w=0\quad\text{on }\partial\Omega$$
+Furthermore, we assume a __no-slip__ condition at the wall 
 
-## Derivation weak form
+$$w=0\quad\text{on }\partial\Omega$$,
+
+where $\Omega$ is the interior of the crosssection and $\partial\Omega$ denotes its boundary.
+
+## Derivation of the weak form
 
 The strong form of the axial momentum equation on the cross-section $\Omega$ is:
 
-$$-\mu\nabla^2w=\frac{dp}{dz},$$
+$$-\mu\nabla^2w=\frac{dp}{dz} \qquad (1)$$
 
 where $\mu$ is the __dynamic viscosity__ and $\frac{dp}{dz}$ is the __constant axial pressure gradient__ driving the flow.
 
+Let 
 
-Let $$f=-\frac{1}{\mu}\frac{dp}{dz}=const,$$
-be the __normalized pressure gradient. 
+$$f=-\frac{1}{\mu}\frac{dp}{dz}=const$$
+
+, be the __normalized pressure gradient__. 
 
 
-The weak form of equation can be derived to be: 
+The weak form of equation (1) is obtained as: 
 
-$$\int_\Omega \nabla w \cdot \nabla v  d\Omega = \int_\Omega f v d\Omega \quad \forall v \in V_0$$
+$$\int_\Omega \nabla w \cdot \nabla v \hspace{2pt} d\Omega = \int_\Omega f v \hspace{3pt} d\Omega \quad \forall v \in V_0$$
 
-with $V_0 = H_0^1(\Omega)$ (zero on boundary → no-slip).
+with $V_0 = H_0^1(\Omega)$, the __Sobolov space__ of test functions that vanish on $\partial \Omega$ (corresponding to the no‑slip condition).
 
-We seek the axial velocity, $w \in V_0$ that satisfies the above equation.
+We seek the axial velocity $w \in V_0$, that satisfies the weak formulation above.
 
-The resulting solution for $w$ will be compared to the analytical __Hagen–Poiseuille__ velocity profile.
+The resulting numerical solution for $w$ will be compared to the analytical __Hagen–Poiseuille__ velocity profile.
 
 ### 2. Discretization idea
 
 A 2D mesh of the cross-section consisting of triangles will be used.
 
-![[Pasted image 20260520221844.png|379]]
+<img width="400" alt="Pasted image 20260507111542" src="figures/image.png" />
 
 We will choose piecewise linear $P_1$ elements.
 
@@ -76,14 +86,6 @@ The maximum is, from python, $\omega_{max}=0.247 m/s$.
 
 The hagen-Poiseuille equations, as applied to these circumstances, gives:
 
-$$u(r)=1-r^2=$$
-𝑢
-(
-𝑟
-)
-=
-1
-−
 𝑟
 2
 .
