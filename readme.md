@@ -111,6 +111,6 @@ $$w_{\max} = -\frac{1}{4\mu}\frac{dp}{dz}R^2 = -\frac{1}{4(1.0 \hspace{3pt}\text
 
 The relative error is therefore
 
-$$\varepsilon = \frac{|w_{\max} - w_{\text{FEM}}|}{w_{\max}} = \frac{|0.25 - 0.247|}{0.25} = 0.012 = 1.2\%$$
+$$\varepsilon = \frac{|w_{\max} - w_{\text{FEM}}|}{w_{\max}} = \frac{|0.25 - 0.247|}{0.25} = 0.012 = 1.2%$$
 
 A deviation of **1.2%** demonstrates excellent agreement between the numerical and analytical solutions and provides a **sufficiently accurate validation** of the FEM implementation.
