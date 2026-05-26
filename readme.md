@@ -82,10 +82,9 @@ is called the __stiffness matrix__ and has the properties of being symmetric and
 is called the __load vector__.
 
 # Results
-
+figures/Pasted image 20260520222506.png
 The following plot made in the accompanying code verifies that the velocity is at its maximum in the center of the pipe and deteriorates towards the wall, becoming zero at the wall in consistence with the Dirichlet no-slip boundary condition.
-
-![[Pasted image 20260520222506.png]]
+<img width="400" alt="Pasted image 20260507111542" src="figures/Pasted image 20260520222506.png" />
 
 Plotting the radial velocity, $w$, gives the following plot:
 
