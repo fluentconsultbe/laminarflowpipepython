@@ -61,27 +61,32 @@ A 2D triangular mesh is generated on the pipe cross‑section Ω.
 
 <img width="400" alt="Pasted image 20260507111542" src="figures/image.png" />
 
-We use **piecewise linear** P1 **finite elements**, so the approximate solution is written as $$w_h(x,y) = \sum_{j=1}^{N} w_j \, \phi_j(x,y)$$, where $\phi_j$ are the __nodal basis functions__ associated with the mesh vertices.
+We use **piecewise linear** P1 **finite elements**, so the approximate solution is written as 
+
+$$w_h(x,y) = \sum_{j=1}^{N} w_j \phi_j(x,y)$$, 
+
+where $\phi_j$ are the __nodal basis functions__ associated with the mesh vertices.
 
 The weak form above, (2), leads to the linear system: 
 
-$$K \mathbf{w} = \mathbf{f}$$ , where
+$$K \mathbf{w} = \mathbf{f}$$ 
 
-$$K_{ij} = \int_\Omega \nabla \phi_i \cdot \nabla \phi_j \hspace{3pt}d\Omega
-   $$
-, is called the __stiffness matrix__ and has the properties of being symmetric and positive definite and:
+, where
+
+$$K_{ij} = \int_\Omega \nabla \phi_i \cdot \nabla \phi_j \hspace{3pt}d\Omega$$
+
+is called the __stiffness matrix__ and has the properties of being symmetric and positive definite and:
 
  $$f_i = \int_\Omega f \phi_i  \hspace{3pt} d\Omega$$
 
-is called the the __load vector__.
+is called the __load vector__.
 
 # 3. Results
-
+figures/Pasted image 20260520222506.png
 The following plot generated in the accompanying Python notebook confirms that the velocity is at its maximum in the center of the pipe and decreases monotonically toward the wall, where it correctly approaches zero in consistence with the Dirichlet no-slip boundary condition. Furthermore, the shape closely resembles the analytical parabolic Hagen–Poiseuille profile,
+<img width="400" alt="Pasted image 20260507111542" src="figures/Pasted image 20260520222506.png" />
 
-![[Pasted image 20260520222506.png]]
-
-![[Pasted image 20260521130354.png]]
+<img width="400" alt="Pasted image 20260507111542" src="figures/Pasted image 20260521130354.png" />
 # 4. Validation 
 
 For fully developed laminar flow in a circular pipe, the velocity profile is given by the Hagen–Poiseuille solution
