@@ -88,7 +88,7 @@ The following plot made in the accompanying code verifies that the velocity is a
 
 Plotting the radial velocity, $w$, gives the following plot:
 
-![[Pasted image 20260521130354.png]]
+<img width="400" alt="Pasted image 20260507111542" src="figures/Pasted image 20260521130354.png" />
 
 ¨From this plot it can seen that velocity it is a maximum in the center of the pipe and goes to zero when moving towards to wall in a manner that resembles a parabolic curve.
 
