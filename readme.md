@@ -79,7 +79,7 @@ is called the __stiffness matrix__ and has the properties of being symmetric and
 
  $$f_i = \int_\Omega f \phi_i  \hspace{3pt} d\Omega$$
 
-is called the the __load vector__.
+is called the __load vector__.
 
 # Results
 
