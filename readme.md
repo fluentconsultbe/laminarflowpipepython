@@ -82,11 +82,13 @@ is called the __stiffness matrix__ and has the properties of being symmetric and
 is called the __load vector__.
 
 # 3. Results
-figures/Pasted image 20260520222506.png
-The following plot generated in the accompanying Python notebook confirms that the velocity is at its maximum in the center of the pipe and decreases monotonically toward the wall, where it correctly approaches zero in consistence with the Dirichlet no-slip boundary condition. Furthermore, the shape closely resembles the analytical parabolic Hagen–Poiseuille profile,
+
+The following plot generated in the accompanying Python notebook confirms that the velocity is at its maximum in the center of the pipe and decreases monotonically toward the wall, where it correctly approaches zero in consistence with the Dirichlet no-slip boundary condition. Furthermore, the shape closely resembles the analytical parabolic Hagen–Poiseuille profile.
+
 <img width="400" alt="Pasted image 20260507111542" src="figures/Pasted image 20260520222506.png" />
 
 <img width="400" alt="Pasted image 20260507111542" src="figures/Pasted image 20260521130354.png" />
+
 # 4. Validation 
 
 For fully developed laminar flow in a circular pipe, the velocity profile is given by the Hagen–Poiseuille solution
@@ -102,12 +104,13 @@ $$w_{\max} = -\frac{1}{4\mu}\frac{dp}{dz}R^2.$$
 Using the parameters  
 
 $$\mu = 1.0 \hspace{3pt}Pa\cdot s, \qquad \frac{dp}{dz} = -1.0\hspace{3pt}Pa/m, \qquad R=1\hspace{3pt}m$$
+
 we get that
 
 $$w_{\max} = -\frac{1}{4\mu}\frac{dp}{dz}R^2 = -\frac{1}{4(1.0 \hspace{3pt}\text{Pa ⋅ s})}\cdot(-1.0 \hspace{3pt}\text{Pa / m})\cdot(1 \hspace{2pt}\text{m})^2 = 0.25 \hspace{3pt}\text{m/s}$$
 
 The relative error is therefore
 
-$$\varepsilon = \frac{|w_{\max} - w_{\text{FEM}}|}{w_{\max}} = \frac{|0.25 - 0.247|}{0.25} = 0.012 = 1.2\%.$$
+$$\varepsilon = \frac{|w_{\max} - w_{\text{FEM}}|}{w_{\max}} = \frac{|0.25 - 0.247|}{0.25} = 0.012 = 1.2\%$$
 
 A deviation of **1.2%** demonstrates excellent agreement between the numerical and analytical solutions and provides a **sufficiently accurate validation** of the FEM implementation.
